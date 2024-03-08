@@ -7,6 +7,7 @@ public class Car {
 
     Car(int yearOfManufacture) {
         this.yearOfManufacture = yearOfManufacture;
+        info();
     }
 
     public String getModel() {

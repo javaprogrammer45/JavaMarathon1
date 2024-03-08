@@ -9,6 +9,7 @@ public class Motorbike {
         this.model = model;
         this.color = color;
         this.yearOfManufacture = yearOfManufacture;
+        info();
     }
 
     public String getModel() {

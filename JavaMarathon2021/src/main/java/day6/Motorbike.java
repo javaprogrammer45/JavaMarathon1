@@ -1,11 +1,13 @@
 package day6;
 
-public class Car {
+public class Motorbike {
     private String model;
     private String color;
     private int yearOfManufacture;
 
-    Car(int yearOfManufacture) {
+    public Motorbike(String model, String color, int yearOfManufacture) {
+        this.model = model;
+        this.color = color;
         this.yearOfManufacture = yearOfManufacture;
     }
 
@@ -13,32 +15,19 @@ public class Car {
         return model;
     }
 
-    public void setModel(String carmodel) {
-        carmodel = model;
-    }
-
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String carcolor) {
-        carcolor = color;
     }
 
     public int getYearOfManufacture() {
         return yearOfManufacture;
     }
 
-    public void setYearOfManufacture(int yearOfManufactureCar) {
-        yearOfManufactureCar = yearOfManufacture;
-    }
-
     public void info() {
-        System.out.println("Это автомобиль!!!");
+        System.out.println("Это мотоцикл!!!");
     }
 
     public int yearDifference(int inputYear) {
-
         int result = 0;
         if (inputYear > yearOfManufacture) {
             result = (yearOfManufacture - inputYear) * (-1);

@@ -2,10 +2,10 @@ package day6;
 
 public class Airplane {
     private String manufacturer;
-    int year;
-    float length;
-    float weight;
-    int fuel;
+    private int year;
+    private float length;
+    private float weight;
+    private int fuel;
 
 
     Airplane(String manufacturer, int year, float length, float weight) {
@@ -13,8 +13,7 @@ public class Airplane {
         this.year = year;
         this.length = length;
         this.weight = weight;
-        fuel = 0;
-        info();
+        int fuel;
     }
 
     public void setManufacturer(String manufacturer) {
@@ -45,9 +44,7 @@ public class Airplane {
         System.out.println("Изготовитель: " + manufacturer + "," + "год выпуска: " + year + "," + "длина: " + length + "," + "вес: " + weight + "," + "количество топлива в баке: " + fuel);
     }
 
-    public int fillUp(int n) {
-
+    public void fillUp(int n) {
         fuel = fuel + n;
-        return fuel;
     }
 }

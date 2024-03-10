@@ -14,7 +14,7 @@ public class Task1 {
         } else if (quantity >= 5 &&
         quantity <= 8) {
             System.out.println("Среднеэтажный дом");
-        } else if (quantity>=9){
+        } else {
             System.out.println("Многоэтажный дом");
 
 

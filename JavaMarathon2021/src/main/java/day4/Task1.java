@@ -28,18 +28,17 @@ public class Task1 {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > 8) {
-                quantity = quantity + 1;
+                quantity++;
             }
             if (array[i] == 1) {
-                one = one + 1;
+                one++;
             }
             if (array[i] % 2 == 0) {
-                even = even + 1;
+                even++;
+            } else {
+                odd++;
             }
-            if (array[i] % 2 != 0) {
-                odd = odd + 1;
-            }
-            sum = sum + array[i];
+            sum += array[i];
         }
         System.out.println("Количество чисел больше 8: " + quantity);
         System.out.println("Количество чисел равных 1: " + one);

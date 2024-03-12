@@ -28,13 +28,10 @@ public class Player {
 
     public void run() {
         stamina--;
-        switch (stamina) {
-            case 0: {
-                countPlayers = countPlayers - 1;
-                System.out.println(countPlayers);
-                info();
-                break;
-            }
+        if (stamina <= 0) {
+            countPlayers = countPlayers - 1;
+            System.out.println(countPlayers);
+            info();
         }
     }
 

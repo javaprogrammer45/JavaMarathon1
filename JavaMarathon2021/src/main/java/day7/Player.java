@@ -11,8 +11,10 @@ public class Player {
     Player(int stamina) {
         this.stamina = stamina;
         countPlayers++;
-        if (countPlayers >= 6) {
+        if (countPlayers == 6) {
             countPlayers = 6;
+        } else {
+            System.out.println("Две команды по три человека!!!");
         }
     }
 

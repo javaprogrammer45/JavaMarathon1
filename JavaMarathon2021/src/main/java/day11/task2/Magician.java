@@ -1,27 +1,26 @@
 package day11.task2;
 
-public class Magician extends Hero implements PhysAttack, MagicAttack{
-    private int health;
-    private int physDef;
-    private int magicDef;
-    private int physAtt;
-    private int magicAtt;
+import day11.task2.interfaces.MagicAttack;
 
+public class Magician extends Hero implements MagicAttack {
 
+    int magicAtt = 20;
 
-    Magician(int healthMax, int healthMin, int health, int physDef, int magicDef, int physAtt, int magicAtt) {
-        super(healthMax, healthMin);
-        this.health = health;
-        this.physDef = physDef;
-        this.magicDef = magicDef;
-        this.physAtt = physAtt;
-        this.magicAtt =magicAtt;
+    public Magician() {
+        physAtt = 5;
+        magicDef = 0.8;
+        physDef = 0;
     }
 
-
-   public void magicalAttack(Hero hero){};
-
-    public void  physicalAttack(Hero hero){};
+    @Override
+    public void magicalAttack(Hero h) {
+        double resultAtt = magicAtt * (1 - h.magicDef);
+        if (h.health - resultAtt < 0) {
+            h.health = MIN_HEALTH;
+        } else {
+            h.health -= resultAtt;
+        }
+    }
 
 
     @Override

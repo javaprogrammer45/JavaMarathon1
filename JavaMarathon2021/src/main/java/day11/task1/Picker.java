@@ -1,24 +1,23 @@
 package day11.task1;
 
 public class Picker implements Worker {
+    final int BONUS = 70000;
+    final int PRICE_SALARY = 80;
+
     private float salary;
     private boolean isPayed = false;
 
     private Warehouse warehouse;
 
-    {
-        warehouse = new Warehouse();
-
-    }
-
-    Picker(float salary, boolean isPayed) {
+    Picker(float salary, boolean isPayed, Warehouse warehouse) {
+        this.warehouse = warehouse;
         this.salary = salary;
         this.isPayed = isPayed;
 
     }
 
     public float getSalary() {
-        salary += 80;
+        salary += PRICE_SALARY;
         return salary;
     }
 
@@ -29,18 +28,18 @@ public class Picker implements Worker {
 
     public void doWork() {
         getSalary();
-       warehouse.getCountPickedOrders();
+        warehouse.incrementCountPickedOrders();
+        warehouse.getCountPickedOrders();
     }
 
 
     public void bonus() {
-        System.out.println(warehouse.toString());
+
         if (isPayed) {
             System.out.println(
-                    "Бонус уже был выплачен");}
-
-       else if (warehouse.getCountPickedOrders() == 10001) {
-            salary += 70000;
+                    "Бонус уже был выплачен");
+        } else if (warehouse.getCountPickedOrders() == 10000) {
+            salary += BONUS;
             isPayed();
 
         } else {

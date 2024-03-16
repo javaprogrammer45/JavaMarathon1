@@ -5,23 +5,32 @@ public class Warehouse {
     private int countDeliveredOrders;
 
 
-
     public int getCountPickedOrders() {
-        countPickedOrders++;
+
         return countPickedOrders;
     }
 
     public int getCountDeliveredOrders() {
-        countDeliveredOrders++;
+
         return countDeliveredOrders;
+    }
+
+    public void incrementCountPickedOrders() {
+        countPickedOrders++;
+
+    }
+
+    public void incrementCountDeliveredOrders() {
+        countDeliveredOrders++;
+
     }
 
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "Warehouse{" +
-                "countPickedOrders=" + getCountPickedOrders() +
-                ", countDeliveredOrders=" + getCountDeliveredOrders() +
+                "countPickedOrders=" + countPickedOrders +
+                ", countDeliveredOrders=" + countDeliveredOrders +
                 '}';
     }
 }

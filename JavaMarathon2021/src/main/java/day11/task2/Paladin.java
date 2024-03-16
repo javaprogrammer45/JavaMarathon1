@@ -1,29 +1,38 @@
 package day11.task2;
 
-public class Paladin extends Hero implements Healer, PhysAttack{
-    private int health;
-    private int physDef;
-    private int magicDef;
-    private int physAtt;
-    private int magicAtt;
+import day11.task2.interfaces.Healer;
+
+public class Paladin extends Hero implements Healer {
+
+    final int HEAL_HIMSELF = 25;
+    final int HEAL_TEAMMATE = 10;
 
 
+    public Paladin() {
+        physDef = 0.5;
+        magicDef = 0.2;
+        physAtt = 15;
 
-Paladin(int healthMax, int healthMin, int health, int physDef, int magicDef, int physAtt, int magicAtt) {
-    super(healthMax, healthMin);
-    this.health = health;
-    this.physDef = physDef;
-    this.magicDef = magicDef;
-    this.physAtt = physAtt;
-    this.magicAtt =magicAtt;
-}
+    }
 
-   public void healHimself(){};
 
-    public void healTeammate(Hero hero){};
+    @Override
+    public void healHimself() {
+        if (health + HEAL_HIMSELF > 100) {
+            health = MAX_HEALTH;
+        } else {
+            health += HEAL_HIMSELF;
+        }
+    }
 
-    public void physicalAttack(Hero hero){};
-
+    @Override
+    public void healTeammate(Hero h) {
+        if (h.health + HEAL_TEAMMATE > 100) {
+            h.health = MAX_HEALTH;
+        } else {
+            h.health += HEAL_TEAMMATE;
+        }
+    }
 
 
     @Override
@@ -32,5 +41,6 @@ Paladin(int healthMax, int healthMin, int health, int physDef, int magicDef, int
                 "health=" + health +
                 '}';
     }
+
 }
 

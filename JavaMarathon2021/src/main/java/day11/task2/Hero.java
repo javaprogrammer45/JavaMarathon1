@@ -1,21 +1,35 @@
 package day11.task2;
 
-public abstract class Hero {
- private int healfMax;
- private int healfMin;
+import day11.task2.interfaces.PhysAttack;
 
- Hero(int healfMax, int healfMin) {
-     this.healfMax=healfMax;
-     this.healfMin= healfMin;
-     healfMax=100;
-     healfMin =0;
- }
+public abstract class Hero implements PhysAttack {
+    final int MAX_HEALTH = 100;
+    final int MIN_HEALTH = 0;
+    int health;
+    double physDef;
 
-    public int getHealfMax() {
-        return healfMax;
+    double magicDef;
+    int physAtt;
+
+
+    public Hero() {
+        health = 100;
     }
 
-    public int getHealfMin() {
-        return healfMin;
+
+    public void physicalAttack(Hero h) {
+        double resultAtt = physAtt * (1 - h.physDef);
+        if (h.health - resultAtt < MIN_HEALTH) {
+            h.health = MIN_HEALTH;
+        } else {
+            h.health -= resultAtt;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "health=" + health +
+                '}';
     }
 }

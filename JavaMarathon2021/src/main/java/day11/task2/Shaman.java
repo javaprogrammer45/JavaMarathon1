@@ -1,33 +1,52 @@
 package day11.task2;
 
-public class Shaman extends Hero implements Healer, PhysAttack, MagicAttack{
-    private int health;
-    private int physDef;
-    private int magicDef;
-    private int physAtt;
-    private int magicAtt;
+import day11.task2.interfaces.Healer;
+import day11.task2.interfaces.MagicAttack;
+
+public class Shaman extends Hero implements Healer, MagicAttack {
+    final int HEAL_HIMSELF = 50;
+    final int HEAL_TEAMMATE = 30;
+    int magicAtt = 15;
 
 
+    public Shaman() {
+        physAtt = 10;
+        physDef = 0.2;
+        magicDef = 0.2;
+    }
+
+    @Override
+    public void healHimself() {
+        if (health + HEAL_HIMSELF > MAX_HEALTH) {
+            health = MAX_HEALTH;
+        } else {
+            health += HEAL_HIMSELF;
+        }
+    }
+
+    @Override
+    public void healTeammate(Hero h) {
+        if (health + HEAL_TEAMMATE > MAX_HEALTH) {
+            h.health = MAX_HEALTH;
+        } else {
+            h.health += HEAL_TEAMMATE;
+        }
 
 
-    Shaman(int healthMax, int healthMin, int health, int physDef, int magicDef, int physAtt, int magicAtt) {
-        super(healthMax, healthMin);
-        this.health = health;
-        this.physDef = physDef;
-        this.magicDef = magicDef;
-        this.physAtt = physAtt;
-        this.magicAtt =magicAtt;
     }
 
 
-    public void healHimself(){};
+    @Override
+    public void magicalAttack(Hero h) {
+        double resultAtt = magicAtt * (1 - h.magicDef);
+        if (h.health - resultAtt < 0) {
+            h.health = MIN_HEALTH;
+        } else {
+            h.health -= resultAtt;
+        }
 
-   public void healTeammate(Hero hero){};
 
-    public void  physicalAttack(Hero hero){};
-
-    public void magicalAttack(Hero hero){};
-
+    }
 
     @Override
     public String toString() {

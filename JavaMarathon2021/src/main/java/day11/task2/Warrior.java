@@ -1,26 +1,13 @@
 package day11.task2;
 
-public class Warrior extends Hero implements PhysAttack{
-    private int health;
-    private int physDef;
-    private int magicDef;
-    private int physAtt;
-    private int magicAtt;
+public class Warrior extends Hero {
 
 
+    public Warrior() {
+        physDef = 0.8;
+        physAtt = 30;
+        magicDef = 0;
 
-    Warrior(int healthMax, int healthMin, int health, int physDef, int magicDef, int physAtt, int magicAtt) {
-        super(healthMax, healthMin);
-        this.health = health;
-        this.physDef = physDef;
-        this.magicDef = magicDef;
-        this.physAtt = physAtt;
-        this.magicAtt =magicAtt;
-    }
-
-    public void  physicalAttack(Hero hero) {
-        health = getHealfMax() - (physAtt - physAtt*physDef);
-        System.out.println(hero.toString());
     }
 
 

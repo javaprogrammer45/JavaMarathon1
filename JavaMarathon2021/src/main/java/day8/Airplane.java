@@ -13,7 +13,7 @@ public class Airplane {
         this.year = year;
         this.length = length;
         this.weight = weight;
-        info();
+
     }
 
     public void setManufacturer(String manufacturer) {
@@ -40,11 +40,18 @@ public class Airplane {
         return fuel;
     }
 
-    public void info() {
-        System.out.println("Изготовитель: " + manufacturer + "," + "год выпуска: " + year + "," + "длина: " + length + "," + "вес: " + weight + ",");
-    }
 
     public void fillUp(int n) {
         fuel = fuel + n;
+    }
+
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "Изготовитель:'" + manufacturer + '\'' +
+                ", год выпуска:" + year +
+                ", длина:" + length +
+                ", вес:" + weight +
+                '}';
     }
 }

@@ -9,6 +9,10 @@ public class MusicBand {
         this.yearOfFoundation = yearOfFoundation;
     }
 
+    public MusicBand() {
+
+    }
+
     public int getYearOfFoundation() {
         return yearOfFoundation;
     }

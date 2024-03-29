@@ -20,8 +20,8 @@ public class Task1 {
         File file = new File(pathToFile);
         File file1 = new File(pathToFile1);
 
-        try {
-            PrintWriter printWriter = new PrintWriter(file1);
+        try( PrintWriter printWriter = new PrintWriter(file1)) {
+
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String[] lines = scanner.nextLine().split(";");
@@ -30,7 +30,7 @@ public class Task1 {
                     printWriter.close();
                 }
             }
-            printWriter.close();
+
             scanner.close();
         } catch (IOException e) {
             System.out.println("File not found!!!");

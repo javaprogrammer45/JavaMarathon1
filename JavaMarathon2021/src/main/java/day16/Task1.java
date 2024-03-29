@@ -29,7 +29,7 @@ public class Task1 {
                 }
 
             }
-
+scanner.close();
         }
         catch (IOException e){
             System.out.println("File not found!!!");

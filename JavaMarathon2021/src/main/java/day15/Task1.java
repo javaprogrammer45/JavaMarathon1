@@ -17,24 +17,23 @@ public class Task1 {
         String pathToFile1 = separator1 + "C:" + separator1 + "JavaMarathon" + separator1 + "JavaMarathon2021" + separator1 + "src" + separator1 + "main" +
                 separator1 + "resources" + separator1 + "missing_shoes.txt";
 
-
-        File file1 = new File(pathToFile1);
         File file = new File(pathToFile);
-
+        File file1 = new File(pathToFile1);
 
         try {
+            PrintWriter printWriter = new PrintWriter(file1);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String[] lines = scanner.nextLine().split(";");
                 if (Integer.parseInt(lines[2]) == 0) {
-                    PrintWriter printWriter = new PrintWriter(file1);
                     printWriter.println(lines[0] + "   " + lines[1] + "   " + "   " + lines[2]);
+                    printWriter.close();
                 }
             }
-
+            printWriter.close();
+            scanner.close();
         } catch (IOException e) {
             System.out.println("File not found!!!");
-
         }
     }
 }

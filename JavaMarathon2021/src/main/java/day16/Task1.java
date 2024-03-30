@@ -20,18 +20,22 @@ public class Task1 {
                 String d = scanner.nextLine();
                 String[] result = d.split(" ");
 
-
+                float sum = 0;
+                float res = 0;
+                int[] arrA = new int[result.length];
                 for (int i = 0; i < result.length; i++) {
                     int a = Integer.parseInt(result[i]);
-                    int[] arrA= new int[result.length];
-                    arrA[i]=a;
-                    System.out.println(arrA[i]);
-                }
+                    arrA[i] = a;
+                    sum += arrA[i];
+                    res = sum / result.length;
 
+                }
+                System.out.printf("%f", res);
+                System.out.print("     -->");
+                System.out.printf("%10.3f", res);
             }
-scanner.close();
-        }
-        catch (IOException e){
+            scanner.close();
+        } catch (IOException e) {
             System.out.println("File not found!!!");
         }
     }
